@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Review</title>
+</head>
+<body>
+
+```
+<!-- CABEÇALHO -->
+<header>
+    <h1>Anime Review</h1>
+
+    <nav>
+        <ul>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<main>
+
+    <!-- SEÇÃO DE REVIEWS -->
+    <section id="reviews">
+        <h2>Últimas Reviews</h2>
+
+        <!-- REVIEW 1 -->
+        <article>
+            <header>
+                <h3>Attack on Titan</h3>
+                <p>Nota: 10/10</p>
+                <p>
+                    Publicado em 
+                    <time datetime="2026-02-12">12 de Fevereiro de 2026</time>
+                </p>
+            </header>
+
+            <figure>
+                <img src="aot.jpg" alt="Imagem do anime Attack on Titan" width="300">
+                <figcaption>Attack on Titan - Temporada Final</figcaption>
+            </figure>
+
+            <p>
+                Após perder a mãe para as criaturas, Eren Yeager se junta ao exército para exterminá-los, descobrindo segredos obscuros
+                sobre a origem dos gigantes e o passado de seu mundo.
+            </p>
+
+            <footer>
+                <p>Autor: Seu Nome</p>
+            </footer>
+        </article>
+
+        <!-- REVIEW 2 -->
+        <article>
+            <header>
+                <h3>Demon Slayer</h3>
+                <p>Nota: 9/10</p>
+                <p>
+                    Publicado em 
+                    <time datetime="2026-02-10">10 de Fevereiro de 2026</time>
+                </p>
+            </header>
+
+            <figure>
+                <img src="demonslayer.jpg" alt="Imagem do anime Demon Slayer" width="300">
+                <figcaption>Demon Slayer - Kimetsu no Yaiba</figcaption>
+            </figure>
+
+            <p>
+                segue Tanjiro Kamado, um jovem gentil cuja vida é devastada quando demônios assassinam sua família e transformam sua
+                irmã, Nezuko, em uma oni. Para vingar sua família e buscar uma cura para Nezuko, Tanjiro se torna um espadachim caçador
+                de demônios, unindo-se ao Esquadrão de Caçadores.
+            </p>
+
+            <footer>
+                <p>Autor: Seu Nome</p>
+            </footer>
+        </article>
+
+    </section>
+
+    <!-- SEÇÃO SOBRE -->
+    <section id="sobre">
+        <h2>Sobre o Site</h2>
+        <p>
+            O Anime Review é um projeto acadêmico focado na análise
+            crítica de animes populares, utilizando HTML5 semântico.
+        </p>
+    </section>
+
+    <!-- SEÇÃO CONTATO -->
+    <section id="contato">
+        <h2>Envie sua Avaliação</h2>
+
+        <form>
+
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome" name="nome" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="anime">Anime Avaliado:</label><br>
+            <input type="text" id="anime" name="anime" required><br><br>
+
+            <label for="nota">Nota (1 a 10):</label><br>
+            <input type="number" id="nota" name="nota" min="1" max="10" required><br><br>
+
+            <label for="review">Sua Review:</label><br>
+            <textarea id="review" name="review" rows="4" cols="40" required></textarea><br><br>
+
+            <button type="submit">Enviar</button>
+
+        </form>
+    </section>
+
+</main>
+
+<!-- RODAPÉ -->
+<footer>
+    <p>© 2026 Anime Review | Desenvolvido por Luiz Gustavo & João Guilherme</p>
+</footer>
+```
+
+</body>
+</html>
