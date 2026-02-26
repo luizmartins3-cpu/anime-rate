@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #06068d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #ff2e63;
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
