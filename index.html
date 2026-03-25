@@ -1,28 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Rate - Avalie seus Animes Favoritos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Anime Rate</h1>
-<img src="https://www.einerd.com/wp-content/uploads/2024/09/shonen-jump.webp" alt="foto de anime">
- 
+    <!-- Cabeçalho do site -->
+    <header>
+        <h1>Anime Rate</h1>
+        <!-- Menu de navegação -->
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#avaliar">Avaliar</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <!-- Conteúdo principal -->
+    <main id="home">
+        <section id="hero">
+            <figure>
+                <img src="https://www.einerd.com/wp-content/uploads/2024/09/shonen-jump.webp" alt="Montagem com vários personagens de anime da Shonen Jump">
+                <figcaption>Os melhores animes da temporada e clássicos de sempre.</figcaption>
+            </figure>
+            <p>Bem-vindo ao Anime Rate, o lugar onde você encontra análises detalhadas e pode deixar sua opinião sobre os animes mais populares.</p>
+        </section>
 
+        <!-- Seção de Reviews -->
+        <section id="reviews">
+            <h2>Reviews Recentes</h2>
+            
+            <!-- Artigo de Review individual -->
+            <article>
+                <h3>Naruto Shippuden</h3>
+                <time datetime="2024-03-20">20 de Março de 2024</time>
+                <figure>
+                    <img src="https://img.imageboss.me/atoupeira/fill/1200/630/center/default/2022-10-04-100224_naruto-shippuden.jpg" alt="Naruto Shippuden logo">
+                    <figcaption>Naruto Uzumaki em sua jornada para se tornar Hokage.</figcaption>
+                </figure>
+                <p>Uma obra emocionante sobre superação, amizade e a busca por reconhecimento. Naruto Shippuden eleva a história do clássico a novos patamares.</p>
+                <p><strong>Nota: 9/10</strong></p>
+            </article>
 
+            <article>
+                <h3>One Piece</h3>
+                <time datetime="2024-03-15">15 de Março de 2024</time>
+                <figure>
+                    <img src="https://tm.ibxk.com.br/2023/08/30/30155209707253.jpg" alt="Luffy de One Piece">
+                    <figcaption>Luffy e sua tripulação em busca do One Piece.</figcaption>
+                </figure>
+                <p>A maior aventura de todos os tempos. One Piece continua a surpreender com seu mundo vasto e construção de personagens impecável.</p>
+                <p><strong>Nota: 10/10</strong></p>
+            </article>
+        </section>
 
+        <!-- Seção de Avaliação (Formulário) -->
+        <section id="avaliar">
+            <h2>Deixe sua Avaliação</h2>
+            <form id="form-avaliacao">
+                <div class="form-group">
+                    <label for="anime">Anime:</label>
+                    <input type="text" id="anime" name="anime" required placeholder="Nome do anime">
+                </div>
 
+                <div class="form-group">
+                    <label for="email">Seu E-mail:</label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                </div>
 
+                <div class="form-group">
+                    <label for="nota">Nota (0 a 10):</label>
+                    <input type="number" id="nota" name="nota" min="0" max="10" step="1" required>
+                </div>
 
+                <div class="form-group">
+                    <label for="comentario">Comentário:</label>
+                    <textarea id="comentario" name="comentario" rows="4" placeholder="O que você achou desse anime?"></textarea>
+                </div>
+
+                <button type="submit">Enviar Avaliação</button>
+            </form>
+            <div id="mensagem-sucesso" class="hidden">Obrigado pela sua avaliação!</div>
+        </section>
+    </main>
+
+    <!-- Rodapé do site -->
+    <footer>
+        <p>&copy; 2024 Anime Rate. Desenvolvido para LabSIS.</p>
+    </footer>
+
+    <!-- Script JavaScript -->
+    <script src="script.js"></script>
 </body>
-
-
-
-
-
-
-
-
 </html>
