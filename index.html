@@ -3,104 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Rate - Avalie seus Animes Favoritos</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Anime Rate - O Melhor Catálogo de Animes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-    <!-- Cabeçalho do site -->
-    <header>
-        <h1>Anime Rate</h1>
-        <!-- Menu de navegação -->
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#avaliar">Avaliar</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="fade-in">
+        <main class="container">
+            <!-- Hero Banner -->
+            <section class="hero-banner">
+                <img src="https://jornalismorio.espm.br/wp-content/uploads/2021/12/confira-agora-os-25-melhores-animes-que-ja-foram-criados-1.jpg" alt="Banner Hero Anime">
+                <div class="hero-content">
+                    <h1 class="hero-title">Descubra seu próximo anime favorito</h1>
+                    <p class="hero-desc">Explore milhares de títulos, avalie suas obras preferidas e organize sua lista personalizada.</p>
+                </div>
+            </section>
 
-    <!-- Conteúdo principal -->
-    <main id="home">
-        <section id="hero">
-            <figure>
-                <img src="https://www.einerd.com/wp-content/uploads/2024/09/shonen-jump.webp" alt="Montagem com vários personagens de anime da Shonen Jump">
-                <figcaption>Os melhores animes da temporada e clássicos de sempre.</figcaption>
-            </figure>
-            <p>Bem-vindo ao Anime Rate, o lugar onde você encontra análises detalhadas e pode deixar sua opinião sobre os animes mais populares.</p>
-        </section>
+            <!-- Controls (Search and Filters) -->
+            <section class="controls-container">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Pesquisar animes...">
+                </div>
+                <div class="filter-group" id="genre-filters">
+                    <div class="filter-btn active" data-genre="all">Todos</div>
+                    <div class="filter-btn" data-genre="Ação">Ação</div>
+                    <div class="filter-btn" data-genre="Romance">Romance</div>
+                    <div class="filter-btn" data-genre="Terror">Terror</div>
+                    <div class="filter-btn" data-genre="Shounen">Shounen</div>
+                    <div class="filter-btn" data-genre="Isekai">Isekai</div>
+                    <div class="filter-btn" data-genre="Comédia">Comédia</div>
+                    <div class="filter-btn" data-genre="Drama">Drama</div>
+                </div>
+            </section>
 
-        <!-- Seção de Reviews -->
-        <section id="reviews">
-            <h2>Reviews Recentes</h2>
+            <h2 class="section-title">Catálogo Completo</h2>
             
-            <!-- Artigo de Review individual -->
-            <article>
-                <h3>Naruto Shippuden</h3>
-                <time datetime="2024-03-20">20 de Março de 2024</time>
-                <figure>
-                    <img src="https://img.imageboss.me/atoupeira/fill/1200/630/center/default/2022-10-04-100224_naruto-shippuden.jpg" alt="Naruto Shippuden logo">
-                    <figcaption>Naruto Uzumaki em sua jornada para se tornar Hokage.</figcaption>
-                </figure>
-                <p>Uma obra emocionante sobre superação, amizade e a busca por reconhecimento. Naruto Shippuden eleva a história do clássico a novos patamares.</p>
-                <p><strong>Nota: 9/10</strong></p>
-            </article>
-
-            <article>
-                <h3>One Piece</h3>
-                <time datetime="2024-03-15">15 de Março de 2024</time>
-                <figure>
-                    <img src="https://tm.ibxk.com.br/2023/08/30/30155209707253.jpg" alt="Luffy de One Piece">
-                    <figcaption>Luffy e sua tripulação em busca do One Piece.</figcaption>
-                </figure>
-                <p>A maior aventura de todos os tempos. One Piece continua a surpreender com seu mundo vasto e construção de personagens impecável.</p>
-                <p><strong>Nota: 10/10</strong></p>
-            </article>
-        </section>
-
-        <!-- Seção de Avaliação (Formulário) -->
-        <section id="avaliar">
-            <h2>Deixe sua Avaliação</h2>
-            <form id="form-avaliacao">
-                <div class="form-group">
-                    <label for="anime">Anime:</label>
-                    <input type="text" id="anime" name="anime" required placeholder="Nome do anime">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Seu E-mail:</label>
-                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="nota">Nota (0 a 10):</label>
-                    <input type="number" id="nota" name="nota" min="0" max="10" step="1" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="comentario">Comentário:</label>
-                    <textarea id="comentario" name="comentario" rows="4" placeholder="O que você achou desse anime?"></textarea>
-                </div>
-
-                <button type="submit">Enviar Avaliação</button>
-            </form>
-            <div id="mensagem-sucesso" class="hidden">Obrigado pela sua avaliação!</div>
-            
-            <!-- Container para mostrar dados do IndexedDB -->
-            <div id="avaliacoes-salvas" style="margin-top: 2rem;">
-                <!-- Conteúdo preenchido pelo controller.js -->
+            <!-- Anime Grid -->
+            <div class="anime-grid" id="anime-grid">
+                <!-- Cards will be rendered here by home.js -->
             </div>
-        </section>
-    </main>
 
-    <!-- Rodapé do site -->
-    <footer>
-        <p>&copy; 2024 Anime Rate. Desenvolvido para LabSIS.</p>
-    </footer>
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-message hidden">
+                <i class="fas fa-search-minus fa-3x" style="margin-bottom: 1rem; color: var(--text-muted);"></i>
+                <h3>Nenhum anime encontrado</h3>
+                <p>Tente ajustar sua pesquisa ou filtros.</p>
+            </div>
+        </main>
+    </div>
 
-    <!-- Script JavaScript -->
-    <script src="script.js"></script>
-    <script src="db.js"></script>
-    <script src="controller.js"></script>
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/home.js"></script>
 </body>
 </html>

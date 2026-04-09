@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliar Anime - Anime Rate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <style>
+        .rating-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .rating-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .rating-header img {
+            width: 150px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin: 0 auto 1rem;
+        }
+
+        .rating-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--bg-dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--border-radius);
+            color: var(--text-light);
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--text-muted);
+            margin: 1rem 0;
+        }
+
+        .star-rating i {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .star-rating i.selected, .star-rating i:hover {
+            color: #ffcc00;
+        }
+
+        .success-message {
+            text-align: center;
+            color: #4ade80;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            background: rgba(74, 222, 128, 0.1);
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="fade-in">
+        <main class="container">
+            <div onclick="window.history.back()" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </div>
+
+            <section class="rating-container">
+                <div class="rating-header" id="anime-header">
+                    <!-- Anime info will be injected here -->
+                </div>
+
+                <form class="rating-form" id="rating-form">
+                    <div class="form-group">
+                        <label for="email">Seu E-mail</label>
+                        <input type="email" id="email" required placeholder="exemplo@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Sua Nota</label>
+                        <div class="star-rating" id="star-rating">
+                            <i class="far fa-star" data-value="1"></i>
+                            <i class="far fa-star" data-value="2"></i>
+                            <i class="far fa-star" data-value="3"></i>
+                            <i class="far fa-star" data-value="4"></i>
+                            <i class="far fa-star" data-value="5"></i>
+                        </div>
+                        <input type="hidden" id="stars-value" value="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">Seu Comentário</label>
+                        <textarea id="comment" rows="5" placeholder="O que você achou deste anime?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Enviar Avaliação</button>
+                </form>
+
+                <div id="success-msg" class="success-message hidden">
+                    <i class="fas fa-check-circle"></i> Avaliação enviada com sucesso!
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/data.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/rating.js"></script>
+</body>
+</html>
