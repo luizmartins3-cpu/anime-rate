@@ -71,14 +71,17 @@ function createNavbar() {
     const navHtml = `
         <nav class="navbar">
             <div class="nav-container">
-                <a href="${basePath}index.html" class="nav-logo">Anime<span>Rate</span></a>
+                <a href="${basePath}index.html" class="nav-logo">
+                    <i class="fas fa-play-circle" style="color: var(--primary-color);"></i>
+                    Anime<span>Rate</span>
+                </a>
                 <ul class="nav-links">
                     <li><a href="${basePath}index.html">Início</a></li>
                     <li><a href="${isSubPage ? 'favorites.html' : 'pages/favorites.html'}">Favoritos</a></li>
                     ${currentUser 
                         ? `<li><a href="${isSubPage ? 'profile.html' : 'pages/profile.html'}">Meu Perfil</a></li>
-                           <li><a href="#" id="logout-btn" style="color: var(--accent-color);">Sair</a></li>`
-                        : `<li><a href="${isSubPage ? 'login.html' : 'pages/login.html'}" class="btn btn-primary" style="padding: 0.4rem 1rem; color: white;">Entrar</a></li>`
+                           <li><a href="#" id="logout-btn" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: var(--accent-color); border-color: rgba(244, 63, 94, 0.2);">Sair</a></li>`
+                        : `<li><a href="${isSubPage ? 'login.html' : 'pages/login.html'}" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Entrar</a></li>`
                     }
                 </ul>
                 <div class="nav-mobile-btn">
@@ -101,6 +104,18 @@ function createNavbar() {
             mobileBtn.classList.toggle('active');
         });
     }
+
+    // Scroll effect for navbar
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            nav.style.padding = '0.75rem 0';
+            nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
+        } else {
+            nav.style.padding = '1.25rem 0';
+            nav.style.boxShadow = 'none';
+        }
+    });
 
     // Logout logic
     const logoutBtn = document.getElementById('logout-btn');

@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anime Rate - O Melhor Catálogo de Animes</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
 </head>
@@ -16,7 +22,10 @@
                 <img src="images/hero-banner.jpg" alt="Banner Hero Anime">
                 <div class="hero-content">
                     <h1 class="hero-title">Descubra seu próximo anime favorito</h1>
-                    <p class="hero-desc">Explore milhares de títulos, avalie suas obras preferidas e organize sua lista personalizada.</p>
+                    <p class="hero-desc">Explore milhares de títulos, avalie suas obras preferidas e organize sua lista personalizada com a melhor comunidade otaku.</p>
+                    <div class="hero-actions">
+                        <a href="#anime-grid" class="btn btn-primary">Começar a Explorar <i class="fas fa-chevron-right"></i></a>
+                    </div>
                 </div>
             </section>
 
@@ -24,7 +33,7 @@
             <section class="controls-container">
                 <div class="search-bar">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="search-input" placeholder="Pesquisar animes...">
+                    <input type="text" id="search-input" placeholder="Pesquisar por título, gênero ou estúdio...">
                 </div>
                 <div class="filter-group" id="genre-filters">
                     <div class="filter-btn active" data-genre="all">Todos</div>
@@ -35,6 +44,7 @@
                     <div class="filter-btn" data-genre="Isekai">Isekai</div>
                     <div class="filter-btn" data-genre="Comédia">Comédia</div>
                     <div class="filter-btn" data-genre="Drama">Drama</div>
+                    <div class="filter-btn" data-genre="Fantasia">Fantasia</div>
                 </div>
             </section>
 
@@ -47,12 +57,26 @@
 
             <!-- Empty State -->
             <div id="empty-state" class="empty-message hidden">
-                <i class="fas fa-search-minus fa-3x" style="margin-bottom: 1rem; color: var(--text-muted);"></i>
+                <i class="fas fa-search-minus fa-3x" style="margin-bottom: 1.5rem; color: var(--primary-color); opacity: 0.5;"></i>
                 <h3>Nenhum anime encontrado</h3>
-                <p>Tente ajustar sua pesquisa ou filtros.</p>
+                <p>Tente ajustar sua pesquisa ou usar filtros diferentes.</p>
+                <button class="btn btn-secondary" style="margin-top: 1.5rem;" onclick="location.reload()">Limpar Filtros</button>
             </div>
         </main>
     </div>
+
+    <footer style="margin-top: 5rem; padding: 4rem 1.5rem; background: var(--bg-glass); border-top: 1px solid var(--glass-border); text-align: center;">
+        <div class="container">
+            <h2 class="nav-logo" style="justify-content: center; margin-bottom: 1rem;">Anime<span>Rate</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">A maior plataforma de avaliação de animes do Brasil.</p>
+            <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem;">
+                <a href="#" style="color: var(--text-muted); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: var(--text-muted); font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                <a href="#" style="color: var(--text-muted); font-size: 1.5rem;"><i class="fab fa-discord"></i></a>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">© 2024 Anime Rate. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="js/data.js"></script>
