@@ -2,7 +2,7 @@ const animeData = [
     {
         id: 1,
         name: "Naruto Shippuden",
-        image: "https://m.media-amazon.com/images/M/MV5BZGFiMWFhNDAtMzUyZS00NmQ2LTljNDYtMmZjNTc5MDUxMzViXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "images/naruto.png",
         rating: 8.7,
         genres: ["Ação", "Shounen"],
         description: "Naruto Uzumaki quer se tornar o maior ninja da vila.",
@@ -14,7 +14,7 @@ const animeData = [
     {
         id: 2,
         name: "One Piece",
-        image: "https://m.media-amazon.com/images/M/MV5BMTNjNGU4ZGUtZWIyMi00OTUyLWE5YmItOTUyY2I3YzA2YjU3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/12/large.jpg",
         rating: 8.9,
         genres: ["Ação", "Shounen", "Aventura"],
         description: "Luffy e sua tripulação buscam o tesouro supremo.",
@@ -26,7 +26,7 @@ const animeData = [
     {
         id: 3,
         name: "Attack on Titan",
-        image: "https://m.media-amazon.com/images/M/MV5BNzc5MTczNDQtNDFjNi00ZDU5LWFkNzItOTE1NzQzMzdhNzMxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/7442/large.jpg",
         rating: 9.1,
         genres: ["Ação", "Drama", "Terror"],
         description: "A humanidade luta contra gigantes comedores de gente.",
@@ -38,7 +38,7 @@ const animeData = [
     {
         id: 4,
         name: "Death Note",
-        image: "https://m.media-amazon.com/images/M/MV5BNjRiNmNjMmMtN2U2Yi00ODgxLTk3OTMtMmI1MTI1NjYyZTEzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/1376/large.jpg",
         rating: 9.0,
         genres: ["Mistério", "Thriller", "Drama"],
         description: "Um caderno que mata quem tem seu nome escrito.",
@@ -50,7 +50,7 @@ const animeData = [
     {
         id: 5,
         name: "Demon Slayer",
-        image: "https://m.media-amazon.com/images/M/MV5BODM2NWQ0ZDEtYmI1OS00NDNjLWFlNjEtZjU1N2U3YjE1YmZlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/41370/large.jpg",
         rating: 8.7,
         genres: ["Ação", "Shounen"],
         description: "Tanjiro luta contra demônios para salvar sua irmã.",
@@ -62,7 +62,7 @@ const animeData = [
     {
         id: 6,
         name: "Jujutsu Kaisen",
-        image: "https://m.media-amazon.com/images/M/MV5BNGY4MTg3NzgtMmFkZi00NTg5LWExNmEtMWI3YzI1MmQyYTMzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/42765/poster_image/large-5ce19551c1a6cf995b378205b9149b5c.jpeg",
         rating: 8.6,
         genres: ["Ação", "Shounen"],
         description: "Yuji Itadori entra no mundo das maldições.",
@@ -74,7 +74,7 @@ const animeData = [
     {
         id: 7,
         name: "Solo Leveling",
-        image: "https://m.media-amazon.com/images/M/MV5BODViZGM5NmEtYzhhOC00Y2E1LTk0Y2ItMThmYTViMjU3YWU1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/46231/poster_image/large-cdadff31f42490b9f48a035939a01a92.jpeg",
         rating: 8.5,
         genres: ["Ação", "Isekai"],
         description: "O caçador mais fraco se torna o mais forte.",
@@ -86,7 +86,7 @@ const animeData = [
     {
         id: 8,
         name: "Chainsaw Man",
-        image: "https://m.media-amazon.com/images/M/MV5BZjY5NDYyMjMtNDY0Ny00YmQyLWFkNjMtZDEyN2E1YmMzZTA2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/43806/poster_image/large-815d6008fb3b56f4291b9f0ffa05cd8f.jpeg",
         rating: 8.5,
         genres: ["Ação", "Terror"],
         description: "Denji se funde com seu cão demônio serra elétrica.",
@@ -98,7 +98,7 @@ const animeData = [
     {
         id: 9,
         name: "Blue Lock",
-        image: "https://m.media-amazon.com/images/M/MV5BZTRiNDU0MjAtYTkyMS00Y2E0LThjMDAtZDI2MWY5NDNkYTE2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/44973/poster_image/large-ca235304c71f4233e60f6efb3967654d.jpeg",
         rating: 8.2,
         genres: ["Esporte", "Drama"],
         description: "A busca pelo atacante egoísta definitivo do Japão.",
@@ -110,7 +110,7 @@ const animeData = [
     {
         id: 10,
         name: "Tokyo Revengers",
-        image: "https://m.media-amazon.com/images/M/MV5BMzY5N2NjZDQtNDZkYi00YjVlLTk5YmYtYzZlYmU0MGNhZTY2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/43321/large.jpg",
         rating: 8.0,
         genres: ["Ação", "Drama"],
         description: "Takemichi viaja no tempo para salvar sua ex-namorada.",
@@ -122,7 +122,7 @@ const animeData = [
     {
         id: 11,
         name: "Spy x Family",
-        image: "https://m.media-amazon.com/images/M/MV5BM2M1YmI5MWUtZGFhNy00ZDRiLWE0YTgtZGNlMjFmYWIyMTE4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/45398/poster_image/large-c26c1e0b77e881fcd66475af6bd22c57.jpeg",
         rating: 8.4,
         genres: ["Comédia", "Drama"],
         description: "Um espião, uma assassina e uma telepata fingem ser uma família.",
@@ -134,7 +134,7 @@ const animeData = [
     {
         id: 12,
         name: "Your Name",
-        image: "https://m.media-amazon.com/images/M/MV5BODRmZDUwMDItNzViNi00NjVlLTllYmUtY2ExZWRjYjc5NDU5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/11614/large.jpg",
         rating: 8.4,
         genres: ["Romance", "Drama"],
         description: "Dois estranhos trocam de corpo e buscam um ao outro.",
@@ -146,7 +146,7 @@ const animeData = [
     {
         id: 13,
         name: "Horimiya",
-        image: "https://m.media-amazon.com/images/M/MV5BOGJmMTc2ZGEtMTY3Mi00ZTI4LWFmYjgtNWQ1Y2RmNGZmYmU4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/43545/large.jpg",
         rating: 8.1,
         genres: ["Romance", "Drama"],
         description: "Dois opostos se atraem e mostram seus verdadeiros eus.",
@@ -158,7 +158,7 @@ const animeData = [
     {
         id: 14,
         name: "Re:Zero",
-        image: "https://m.media-amazon.com/images/M/MV5BMjA5OTgxMTQtOTk2MS00N2NmLWIxMWUtZDM0OGE1OTNjNzAzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/11209/large.jpg",
         rating: 8.1,
         genres: ["Isekai", "Drama", "Terror"],
         description: "Subaru morre e volta no tempo para salvar seus amigos.",
@@ -170,7 +170,7 @@ const animeData = [
     {
         id: 15,
         name: "Sword Art Online",
-        image: "https://m.media-amazon.com/images/M/MV5BYzZlNDZlMWUtMmQ4Mi00OWM0LWFmYWItN2U2OTI0Njk4Y2MxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/6589/large.jpg",
         rating: 7.5,
         genres: ["Isekai", "Ação"],
         description: "Jogadores presos em um MMORPG onde morrer no jogo é real.",
@@ -182,7 +182,7 @@ const animeData = [
     {
         id: 16,
         name: "Bleach",
-        image: "https://m.media-amazon.com/images/M/MV5BMjY5ZTI1MTgtYTg2OC00Y2VjLWFmNWQtYjU4Y2I0N2I5MWY4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/244/large.jpg",
         rating: 8.2,
         genres: ["Ação", "Shounen"],
         description: "Ichigo Kurosaki se torna um Ceifador de Almas.",
@@ -194,7 +194,7 @@ const animeData = [
     {
         id: 17,
         name: "Dragon Ball Z",
-        image: "https://m.media-amazon.com/images/M/MV5BNmZkZGU4NjItZjExYS00NWM0LWE0ZDctYzExYThkODliZjg1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/720/poster_image/large-5cfc7e2756852e708c822df0a9f59871.jpeg",
         rating: 8.8,
         genres: ["Ação", "Shounen"],
         description: "Goku defende a Terra contra ameaças intergalácticas.",
@@ -206,7 +206,7 @@ const animeData = [
     {
         id: 18,
         name: "Vinland Saga",
-        image: "https://m.media-amazon.com/images/M/MV5BNDYwNmY5MjgtZDE3NS00ZDRiLWFlMWItYjI5NWYwZDVmMDhjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/41084/large.jpg",
         rating: 8.8,
         genres: ["Ação", "Drama"],
         description: "Um jovem viking busca vingança em um mundo de guerra.",
@@ -218,7 +218,7 @@ const animeData = [
     {
         id: 19,
         name: "Fullmetal Alchemist: Brotherhood",
-        image: "https://m.media-amazon.com/images/M/MV5BZmMyODU0ZTMtYTBjZC00MzJkLWE3N2YtYTQyYWEzZDYxM2Y2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/3936/large.jpg",
         rating: 9.1,
         genres: ["Ação", "Drama", "Aventura"],
         description: "Dois irmãos buscam a Pedra Filosofal.",
@@ -230,7 +230,7 @@ const animeData = [
     {
         id: 20,
         name: "Hunter x Hunter",
-        image: "https://m.media-amazon.com/images/M/MV5BZjNmZjk5ZjctN2NjYy00YWY2LWJkNjEtZDQ5YmJmODcxYzViXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/6448/large.jpg",
         rating: 9.0,
         genres: ["Ação", "Aventura", "Shounen"],
         description: "Gon busca seu pai e se torna um Hunter.",
@@ -242,7 +242,7 @@ const animeData = [
     {
         id: 21,
         name: "Cyberpunk: Edgerunners",
-        image: "https://m.media-amazon.com/images/M/MV5BMjY5NmNlYTgtYjBjYS00ZDllLTgwZGMtZDVjOTQ0YzY1OTliXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/43248/poster_image/large-a9fe312b804fd8067d13c5ca4bef3ae6.jpeg",
         rating: 8.3,
         genres: ["Ação", "Drama"],
         description: "Um jovem tenta sobreviver em uma cidade obcecada por tecnologia.",
@@ -254,7 +254,7 @@ const animeData = [
     {
         id: 22,
         name: "Steins;Gate",
-        image: "https://m.media-amazon.com/images/M/MV5BMjE1YmQ4YjgtN2RkOS00YWI4LTljODctNjZjYTUxNTBmN2E4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/5646/large.jpg",
         rating: 9.1,
         genres: ["Sci-Fi", "Thriller"],
         description: "Um grupo de amigos descobre como enviar mensagens ao passado.",
@@ -266,7 +266,7 @@ const animeData = [
     {
         id: 23,
         name: "Haikyuu!!",
-        image: "https://m.media-amazon.com/images/M/MV5BYmQzNDk4ZTUtZGNmZi00NDM4LThjYmQtZmRkNmYwM2I3Y2FlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/8133/large.jpg",
         rating: 8.7,
         genres: ["Esporte", "Comédia"],
         description: "Shoyo Hinata quer ser o melhor jogador de vôlei.",
@@ -278,7 +278,7 @@ const animeData = [
     {
         id: 24,
         name: "My Hero Academia",
-        image: "https://m.media-amazon.com/images/M/MV5BMzdmMTFhYzYtZjFjMy00ZjViLWIyNzEtZjJlNDNlZmUwZDU0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/11469/large.jpg",
         rating: 7.9,
         genres: ["Ação", "Shounen"],
         description: "Um garoto sem poderes entra na melhor escola de heróis.",
@@ -290,7 +290,7 @@ const animeData = [
     {
         id: 25,
         name: "One Punch Man",
-        image: "https://m.media-amazon.com/images/M/MV5BYTY2MWFlYmYtYjA2Ni00ZWEyLWE2MzYtNWM0ZDQ0ZWRiN2YxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/10740/large.jpg",
         rating: 8.7,
         genres: ["Ação", "Comédia"],
         description: "Saitama é um herói que derrota qualquer um com um soco.",
@@ -302,7 +302,7 @@ const animeData = [
     {
         id: 26,
         name: "Mob Psycho 100",
-        image: "https://m.media-amazon.com/images/M/MV5BODM0MmFmZjctNTkzNy00OTlkLWE4NjEtYzFjMjU0Njk5YTY4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/11578/poster_image/large-e969f8a688549dd8e02ffd59f49122e9.jpeg",
         rating: 8.6,
         genres: ["Ação", "Comédia"],
         description: "Um garoto com poderes psíquicos tenta viver uma vida normal.",
@@ -314,7 +314,7 @@ const animeData = [
     {
         id: 27,
         name: "Kaguya-sama: Love is War",
-        image: "https://m.media-amazon.com/images/M/MV5BYTFjN2Y2Y2UtZGM1Zi00Y2E4LWE3N2ItOTI3MzA4Y2U1ZGJmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/41373/large.jpg",
         rating: 8.5,
         genres: ["Romance", "Comédia"],
         description: "Dois gênios tentam fazer o outro confessar seu amor primeiro.",
@@ -326,7 +326,7 @@ const animeData = [
     {
         id: 28,
         name: "Code Geass",
-        image: "https://m.media-amazon.com/images/M/MV5BZmFkM2ViNzEtZGU1NS00ZGEyLWEzYWQtNjg4YWU1OTA0YzY0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/1415/large.jpg",
         rating: 8.7,
         genres: ["Ação", "Drama", "Sci-Fi"],
         description: "Um príncipe exilado usa o poder do Geass para derrubar um império.",
@@ -338,7 +338,7 @@ const animeData = [
     {
         id: 29,
         name: "Cowboy Bebop",
-        image: "https://m.media-amazon.com/images/M/MV5BN2VjMDkxYTItYzdmYi00ZDE5LWIyMGItYTM2OTU5N2U1YmQ4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/poster_images/1/large.jpg",
         rating: 8.9,
         genres: ["Ação", "Sci-Fi"],
         description: "Caçadores de recompensas viajam pelo espaço em busca de criminosos.",
@@ -350,7 +350,7 @@ const animeData = [
     {
         id: 30,
         name: "Neon Genesis Evangelion",
-        image: "https://m.media-amazon.com/images/M/MV5BM2NiYzYwYTctN2I5OC00N2Y4LThlZGEtY2Y3OTZkYmE2YmY1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        image: "https://media.kitsu.app/anime/21/poster_image/large-9a3a9086a1b563e9e72d510118eb7d3c.jpeg",
         rating: 8.5,
         genres: ["Sci-Fi", "Drama"],
         description: "Pilotos de robôs gigantes defendem a humanidade contra anjos.",
