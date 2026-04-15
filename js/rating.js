@@ -1,6 +1,9 @@
 // js/rating.js - Rating page logic
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Check Auth
+    AnimeAuth.requireAuth();
+
     // Initialize Navbar
     AnimeUtils.createNavbar();
 
@@ -10,6 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const stars = document.querySelectorAll('#star-rating i');
     const starsInput = document.getElementById('stars-value');
     const successMsg = document.getElementById('success-msg');
+    
+    // Auth info
+    const currentUser = AnimeAuth.getCurrentUser();
+    const emailInput = document.getElementById('email');
+    
+    if (currentUser && emailInput) {
+        emailInput.value = currentUser.email;
+        emailInput.readOnly = true;
+        emailInput.style.opacity = '0.7';
+        emailInput.title = 'Usando seu e-mail de conta';
+    }
 
     if (!animeId) {
         window.location.href = '../index.html';
@@ -24,8 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Render anime header
+    const imageSrc = anime.image.startsWith('http') ? anime.image : `../${anime.image}`;
     animeHeader.innerHTML = `
-        <img src="${anime.image}" alt="${anime.name}">
+        <img src="${imageSrc}" alt="${anime.name}" onerror="this.src='https://via.placeholder.com/150x220?text=Capa'">
         <h2>Avaliar: ${anime.name}</h2>
         <p style="color: var(--text-muted);">${anime.genres.join(', ')}</p>
     `;

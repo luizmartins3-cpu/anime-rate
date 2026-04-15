@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <i class="${isFav ? 'fas' : 'far'} fa-heart"></i>
                         </div>
                         <div class="card-img">
-                            <img src="${anime.image}" alt="${anime.name}" loading="lazy">
+                            <img src="${anime.image}" alt="${anime.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/220x320?text=Capa+Indisponível'">
                             <div class="card-badge">
                                 <i class="fas fa-star"></i> ${anime.rating}
                             </div>

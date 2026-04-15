@@ -64,7 +64,9 @@ function getReviewsByAnime(animeId) {
 function createNavbar() {
     const isSubPage = window.location.pathname.includes('/pages/');
     const basePath = isSubPage ? '../' : './';
-    const pagesPath = isSubPage ? 'pages/' : 'pages/';
+    
+    // Check if user is logged in
+    const currentUser = window.AnimeAuth ? window.AnimeAuth.getCurrentUser() : null;
 
     const navHtml = `
         <nav class="navbar">
@@ -73,7 +75,11 @@ function createNavbar() {
                 <ul class="nav-links">
                     <li><a href="${basePath}index.html">Início</a></li>
                     <li><a href="${isSubPage ? 'favorites.html' : 'pages/favorites.html'}">Favoritos</a></li>
-                    <li><a href="${isSubPage ? 'profile.html' : 'pages/profile.html'}">Perfil</a></li>
+                    ${currentUser 
+                        ? `<li><a href="${isSubPage ? 'profile.html' : 'pages/profile.html'}">Meu Perfil</a></li>
+                           <li><a href="#" id="logout-btn" style="color: var(--accent-color);">Sair</a></li>`
+                        : `<li><a href="${isSubPage ? 'login.html' : 'pages/login.html'}" class="btn btn-primary" style="padding: 0.4rem 1rem; color: white;">Entrar</a></li>`
+                    }
                 </ul>
                 <div class="nav-mobile-btn">
                     <span></span>
@@ -93,6 +99,18 @@ function createNavbar() {
         mobileBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             mobileBtn.classList.toggle('active');
+        });
+    }
+
+    // Logout logic
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (window.AnimeAuth) {
+                window.AnimeAuth.logout();
+                window.location.href = basePath + 'index.html';
+            }
         });
     }
 }

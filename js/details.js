@@ -30,10 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render Details
     const reviews = AnimeUtils.getReviewsByAnime(animeId);
     
+    // Fix image path if it's local
+    const imageSrc = anime.image.startsWith('http') ? anime.image : `../${anime.image}`;
+    
     const detailsHtml = `
         <section class="details-header">
             <div class="details-img">
-                <img src="${anime.image}" alt="${anime.name}">
+                <img src="${imageSrc}" alt="${anime.name}" onerror="this.src='https://via.placeholder.com/350x500?text=Capa+Indisponível'">
             </div>
             <div class="details-info">
                 <h1>${anime.name}</h1>
@@ -51,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <i class="${AnimeUtils.isFavorite(animeId) ? 'fas' : 'far'} fa-heart"></i> 
                         ${AnimeUtils.isFavorite(animeId) ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos'}
                     </button>
-                    <a href="rating.html?id=${anime.id}" class="btn btn-outline">Avaliar Anime</a>
+                    <a href="${AnimeAuth.isLoggedIn() ? `rating.html?id=${anime.id}` : `login.html?redirect=rating.html?id=${anime.id}`}" class="btn btn-outline">Avaliar Anime</a>
                 </div>
             </div>
         </section>
@@ -59,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <section class="trailer-section">
             <h2 class="section-title">Trailer Oficial</h2>
             <div class="video-container">
-                <iframe src="${anime.trailer}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="${anime.trailer}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </section>
 

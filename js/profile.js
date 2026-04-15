@@ -1,6 +1,9 @@
 // js/profile.js - Profile page logic
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Check Auth
+    AnimeAuth.requireAuth();
+
     // Initialize Navbar
     AnimeUtils.createNavbar();
 
@@ -8,6 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const countReviews = document.getElementById('count-reviews');
     const userRank = document.getElementById('user-rank');
     const reviewsList = document.getElementById('user-reviews-list');
+    
+    // Auth info
+    const currentUser = AnimeAuth.getCurrentUser();
+    const profileName = document.querySelector('.profile-info h1');
+    const profileMeta = document.querySelector('.profile-info p');
+    
+    if (currentUser) {
+        profileName.textContent = currentUser.name;
+        profileMeta.innerHTML = `${currentUser.email} <br> <span style="font-size: 0.8rem; opacity: 0.7;">Membro desde ${new Date(currentUser.createdAt).getFullYear()}</span>`;
+    }
 
     const favorites = AnimeUtils.getFavorites();
     const reviews = AnimeUtils.getReviews();

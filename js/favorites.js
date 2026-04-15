@@ -19,13 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
             emptyMsg.classList.add('hidden');
             
             favorites.forEach(anime => {
+                const imageSrc = anime.image.startsWith('http') ? anime.image : `../${anime.image}`;
                 const cardHtml = `
                     <article class="anime-card fade-in">
                         <div class="favorite-btn active" data-id="${anime.id}">
                             <i class="fas fa-heart"></i>
                         </div>
                         <div class="card-img">
-                            <img src="${anime.image}" alt="${anime.name}">
+                            <img src="${imageSrc}" alt="${anime.name}" onerror="this.src='https://via.placeholder.com/220x320?text=Capa+Indisponível'">
                             <div class="card-badge">
                                 <i class="fas fa-star"></i> ${anime.rating}
                             </div>
