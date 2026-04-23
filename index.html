@@ -35,24 +35,47 @@
                     <i class="fas fa-search"></i>
                     <input type="text" id="search-input" placeholder="Pesquisar por título, gênero ou estúdio...">
                 </div>
-                <div class="filter-group" id="genre-filters">
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                    <button id="toggle-genres-btn" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                        <i class="fas fa-filter"></i> Filtrar por Gênero
+                    </button>
+                    <div id="filter-actions" class="hidden" style="display: flex; gap: 0.5rem;">
+                        <button id="select-all-btn" class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">Selecionar Todos</button>
+                        <button id="clear-all-btn" class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">Limpar</button>
+                    </div>
+                </div>
+
+                <div class="filter-group hidden" id="genre-filters">
                     <div class="filter-btn active" data-genre="all">Todos</div>
                     <div class="filter-btn" data-genre="Ação">Ação</div>
-                    <div class="filter-btn" data-genre="Romance">Romance</div>
-                    <div class="filter-btn" data-genre="Terror">Terror</div>
-                    <div class="filter-btn" data-genre="Shounen">Shounen</div>
-                    <div class="filter-btn" data-genre="Isekai">Isekai</div>
+                    <div class="filter-btn" data-genre="Aventura">Aventura</div>
                     <div class="filter-btn" data-genre="Comédia">Comédia</div>
                     <div class="filter-btn" data-genre="Drama">Drama</div>
+                    <div class="filter-btn" data-genre="Escolar">Escolar</div>
+                    <div class="filter-btn" data-genre="Esporte">Esporte</div>
                     <div class="filter-btn" data-genre="Fantasia">Fantasia</div>
+                    <div class="filter-btn" data-genre="Histórico">Histórico</div>
+                    <div class="filter-btn" data-genre="Isekai">Isekai</div>
+                    <div class="filter-btn" data-genre="Mecha">Mecha</div>
+                    <div class="filter-btn" data-genre="Mistério">Mistério</div>
+                    <div class="filter-btn" data-genre="Música">Música</div>
+                    <div class="filter-btn" data-genre="Psicológico">Psicológico</div>
+                    <div class="filter-btn" data-genre="Romance">Romance</div>
+                    <div class="filter-btn" data-genre="Sci-Fi">Sci-Fi</div>
+                    <div class="filter-btn" data-genre="Seinen">Seinen</div>
+                    <div class="filter-btn" data-genre="Shounen">Shounen</div>
+                    <div class="filter-btn" data-genre="Shoujo">Shoujo</div>
+                    <div class="filter-btn" data-genre="Slice of Life">Slice of Life</div>
+                    <div class="filter-btn" data-genre="Sobrenatural">Sobrenatural</div>
+                    <div class="filter-btn" data-genre="Terror">Terror</div>
+                    <div class="filter-btn" data-genre="Thriller">Thriller</div>
                 </div>
             </section>
 
-            <h2 class="section-title">Catálogo Completo</h2>
-            
-            <!-- Anime Grid -->
-            <div class="anime-grid" id="anime-grid">
-                <!-- Cards will be rendered here by home.js -->
+            <div id="main-content">
+                <!-- Genre sections will be rendered here by home.js -->
+                <div class="anime-grid" id="anime-grid"></div>
             </div>
 
             <!-- Empty State -->
