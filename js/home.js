@@ -80,7 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
             let hasResults = false;
 
             genresToShow.forEach(genre => {
-                const animesInGenre = animeData.filter(anime => anime.genres.includes(genre));
+                const animesInGenre = animeData.filter(anime => {
+                    // Se nenhum gênero está selecionado, mostramos apenas se for o gênero principal (index 0)
+                    if (selectedGenres.size === 0) {
+                        return anime.genres[0] === genre;
+                    }
+                    // Se gêneros foram selecionados, mostramos se o anime contiver esse gênero
+                    return anime.genres.includes(genre);
+                });
                 
                 if (animesInGenre.length > 0) {
                     hasResults = true;

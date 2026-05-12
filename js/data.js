@@ -89,7 +89,7 @@ const animeData = [
         image: "https://media.kitsu.app/anime/43806/poster_image/large-815d6008fb3b56f4291b9f0ffa05cd8f.jpeg",
         rating: 8.5,
         genres: ["Ação", "Terror", "Shounen"],
-        description: "Denji se funde com seu cão demônio serra elétrica.",
+        description: "Denji se funde with seu cão demônio serra elétrica.",
         fullDescription: "Denji é um jovem pobre que trabalha como caçador de demônios para pagar as dívidas de seu pai falecido. Após ser traído, ele se funde with seu cão demônio, Pochita, tornando-se o Homem-Motosserra.",
         episodes: 12,
         seasons: 1,
@@ -398,7 +398,7 @@ const animeData = [
     {
         id: 34,
         name: "Bocchi the Rock!",
-        image: "https://media.kitsu.app/anime/44372/poster_image/large-220054817da3d95f448d390233b664d0.jpeg",
+        image: "images/bocchi.jpg",
         rating: 8.6,
         genres: ["Comédia", "Slice of Life", "Música", "Escolar"],
         description: "Uma garota ansiosa entra em uma banda de rock.",
@@ -410,7 +410,7 @@ const animeData = [
     {
         id: 35,
         name: "Frieren: Beyond Journey's End",
-        image: "https://media.kitsu.app/anime/46387/poster_image/large-f236058e17b8f95c4794834da99b2446.jpeg",
+        image: "images/frieren.jpg",
         rating: 9.1,
         genres: ["Aventura", "Fantasia", "Drama", "Shounen"],
         description: "Uma maga elfa reflete sobre a vida e a mortalidade.",

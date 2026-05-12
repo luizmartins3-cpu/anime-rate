@@ -13,6 +13,23 @@
     --transition-speed: 0.3s;
     --border-radius: 16px;
     --glass-border: rgba(255, 255, 255, 0.1);
+    --hero-gradient: linear-gradient(to top, rgba(11, 14, 20, 0.95) 10%, rgba(11, 14, 20, 0.4) 50%, transparent 100%);
+    --title-gradient: linear-gradient(to right, #fff, #94a3b8);
+    --filter-bg: rgba(255, 255, 255, 0.05);
+    --filter-hover: rgba(255, 255, 255, 0.1);
+}
+
+.light-theme {
+    --bg-dark: #f8fafc;
+    --bg-card: rgba(255, 255, 255, 0.8);
+    --bg-glass: rgba(255, 255, 255, 0.9);
+    --text-light: #1e293b;
+    --text-muted: #64748b;
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --hero-gradient: linear-gradient(to top, rgba(248, 250, 252, 0.95) 10%, rgba(248, 250, 252, 0.4) 50%, transparent 100%);
+    --title-gradient: linear-gradient(to right, #1e293b, #64748b);
+    --filter-bg: rgba(0, 0, 0, 0.05);
+    --filter-hover: rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -100,14 +117,14 @@ button, input, textarea, select {
 }
 
 .btn-secondary {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--filter-bg);
     color: var(--text-light);
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--filter-hover);
     transform: translateY(-2px);
 }
 
@@ -128,7 +145,7 @@ button, input, textarea, select {
     font-weight: 800;
     margin-bottom: 2.5rem;
     letter-spacing: -0.025em;
-    background: linear-gradient(to right, #fff, #94a3b8);
+    background: var(--title-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -164,11 +181,11 @@ button, input, textarea, select {
     font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--filter-bg);
     border: 1px solid var(--glass-border);
 }
 
 .back-btn:hover {
     color: var(--text-light);
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--filter-hover);
 }
