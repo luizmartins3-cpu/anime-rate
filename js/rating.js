@@ -79,14 +79,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Form submission
     ratingForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const email = document.getElementById('email').value;
         const starsVal = parseInt(starsInput.value);
-        const comment = document.getElementById('comment').value;
 
         if (starsVal === 0) {
+            e.preventDefault();
             alert('Por favor, selecione uma nota.');
+            return;
+        }
+
+        // Deixamos o formulário seguir para o backend PHP
+        // UI Feedback opcional antes do redirecionamento do PHP
+        ratingForm.style.opacity = '0.5';
+        ratingForm.querySelector('button').innerText = 'Enviando...';
+    });
+});
+lecione uma nota.');
             return;
         }
 

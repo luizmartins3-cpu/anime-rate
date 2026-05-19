@@ -1,15 +1,22 @@
 <?php
-/**
- * FRONT CONTROLLER - Ponto de entrada do sistema
- */
 
-require_once 'controller.php';
+require_once 'Database.php';
+require_once 'MatriculaRepository.php';
+require_once 'MatriculaService.php';
+require_once 'MatriculaController.php';
+require_once 'middleware.php';
 
-$controller = new MatriculaController();
+// Container de Injeção de Dependência manual
+$db = Database::getInstance()->getConnection();
+$repository = new MatriculaRepository($db);
+$service = new MatriculaService($repository);
+$controller = new MatriculaController($service);
 
 // Roteamento simples
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $controller->cadastrar();
+$action = $_GET['action'] ?? 'index';
+
+if ($action === 'store') {
+    $controller->store();
 } else {
     $controller->index();
 }

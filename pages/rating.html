@@ -91,10 +91,14 @@
                     <!-- Anime info will be injected here -->
                 </div>
 
-                <form class="rating-form" id="rating-form">
+                <form class="rating-form" id="rating-form" action="../backend/index.php?action=store" method="POST">
+                    <!-- Hidden fields for PHP backend -->
+                    <input type="hidden" name="anime_id" id="hidden-anime-id">
+                    <input type="hidden" name="anime_name" id="hidden-anime-name">
+
                     <div class="form-group">
                         <label for="email">Seu E-mail</label>
-                        <input type="email" id="email" required placeholder="exemplo@email.com">
+                        <input type="email" id="email" name="email" required placeholder="exemplo@email.com">
                     </div>
 
                     <div class="form-group">
@@ -106,12 +110,12 @@
                             <i class="far fa-star" data-value="4"></i>
                             <i class="far fa-star" data-value="5"></i>
                         </div>
-                        <input type="hidden" id="stars-value" value="0" required>
+                        <input type="hidden" id="stars-value" name="stars" value="0" required>
                     </div>
 
                     <div class="form-group">
                         <label for="comment">Seu Comentário</label>
-                        <textarea id="comment" rows="5" placeholder="O que você achou deste anime?"></textarea>
+                        <textarea id="comment" name="comment" rows="5" placeholder="O que você achou deste anime?"></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-block">Enviar Avaliação</button>
