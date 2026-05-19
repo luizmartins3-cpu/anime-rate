@@ -18,7 +18,7 @@ use Repositories\AnimeRepository;
 use Services\AnimeService;
 use Controllers\AnimeController;
 
-// Instanciação manual para Injeção de Dependência (estilo acadêmico)
+// Instanciação manual para Injeção de Dependência
 $animeRepository = new AnimeRepository();
 $animeService = new AnimeService($animeRepository);
 $animeController = new AnimeController($animeService);

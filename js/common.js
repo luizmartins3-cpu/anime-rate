@@ -1,6 +1,39 @@
 // js/common.js - Shared logic and utilities
 
 /**
+ * Theme Management
+ */
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'light') {
+        document.documentElement.classList.add('light-theme');
+        document.body.classList.add('light-theme');
+    }
+}
+
+function toggleTheme() {
+    const isLight = document.body.classList.toggle('light-theme');
+    document.documentElement.classList.toggle('light-theme');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    
+    // Save to cookie for PHP compatibility
+    document.cookie = `theme=${isLight ? 'light' : 'dark'}; path=/; max-age=31536000`;
+    
+    // Update toggle icon if it exists
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    if (themeBtn) {
+        const icon = themeBtn.querySelector('i');
+        if (icon) {
+            if (isLight) {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+    }
+}
+
+/**
  * Get favorites from localStorage
  */
 function getFavorites() {
@@ -67,6 +100,7 @@ function createNavbar() {
     
     // Check if user is logged in
     const currentUser = window.AnimeAuth ? window.AnimeAuth.getCurrentUser() : null;
+    const isLightTheme = document.body.classList.contains('light-theme');
 
     const navHtml = `
         <nav class="navbar">
@@ -83,6 +117,11 @@ function createNavbar() {
                            <li><a href="#" id="logout-btn" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: var(--accent-color); border-color: rgba(244, 63, 94, 0.2);">Sair</a></li>`
                         : `<li><a href="${isSubPage ? 'login.html' : 'pages/login.html'}" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Entrar</a></li>`
                     }
+                    <li>
+                        <button id="theme-toggle-btn" class="theme-toggle" title="Alternar tema">
+                            <i class="fas ${isLightTheme ? 'fa-moon' : 'fa-sun'}"></i>
+                        </button>
+                    </li>
                 </ul>
                 <div class="nav-mobile-btn">
                     <span></span>
@@ -94,6 +133,15 @@ function createNavbar() {
     `;
     
     document.body.insertAdjacentHTML('afterbegin', navHtml);
+
+    // Initial theme setup
+    initTheme();
+
+    // Theme toggle event
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    if (themeBtn) {
+        themeBtn.addEventListener('click', toggleTheme);
+    }
 
     // Mobile menu toggle
     const mobileBtn = document.querySelector('.nav-mobile-btn');
@@ -108,12 +156,14 @@ function createNavbar() {
     // Scroll effect for navbar
     window.addEventListener('scroll', () => {
         const nav = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            nav.style.padding = '0.75rem 0';
-            nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
-        } else {
-            nav.style.padding = '1.25rem 0';
-            nav.style.boxShadow = 'none';
+        if (nav) {
+            if (window.scrollY > 50) {
+                nav.style.padding = '0.75rem 0';
+                nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.padding = '1.25rem 0';
+                nav.style.boxShadow = 'none';
+            }
         }
     });
 
@@ -147,5 +197,9 @@ window.AnimeUtils = {
     addReview,
     getReviewsByAnime,
     createNavbar,
-    getUrlParam
+    getUrlParam,
+    initTheme
 };
+
+// Initialize theme as soon as possible
+initTheme();

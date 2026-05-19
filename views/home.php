@@ -4,7 +4,7 @@
     <main class="container">
         <!-- Hero Banner -->
         <section class="hero-banner">
-            <img src="/images/hero-banner.jpg" alt="Banner Hero Anime">
+            <img src="images/hero-banner.jpg" alt="Banner Hero Anime">
             <div class="hero-content">
                 <h1 class="hero-title">Descubra seu próximo anime favorito</h1>
                 <p class="hero-desc">Explore milhares de títulos, avalie suas obras preferidas e organize sua lista personalizada com a melhor comunidade otaku.</p>

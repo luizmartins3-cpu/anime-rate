@@ -1,0 +1,66 @@
+// DBML - Database Markup Language
+// Use dbdiagram.io to visualize this schema
+
+Table users {
+  id integer [primary key, increment, note: 'Unique identifier for the user']
+  name varchar [not null]
+  email varchar [unique, not null]
+  password varchar [not null]
+  created_at timestamp [default: `now()`]
+}
+
+Table animes {
+  id integer [primary key, increment]
+  name varchar [not null]
+  image varchar [note: 'Path or URL to the anime poster image']
+  rating decimal [note: 'Average rating from 0.0 to 10.0']
+  description text [note: 'Short summary']
+  full_description text [note: 'Detailed synopsis']
+  episodes integer [default: 0]
+  seasons integer [default: 1]
+  trailer varchar [note: 'Embed URL for YouTube trailer']
+  created_at timestamp [default: `now()`]
+}
+
+Table genres {
+  id integer [primary key, increment]
+  name varchar [unique, not null]
+}
+
+Table anime_genres {
+  anime_id integer [primary key]
+  genre_id integer [primary key]
+  
+  Note: 'Many-to-many relationship between animes and genres'
+}
+
+Table reviews {
+  id integer [primary key, increment]
+  user_id integer [not null]
+  anime_id integer [not null]
+  stars integer [not null, note: 'Rating from 1 to 5']
+  comment text
+  created_at timestamp [default: `now()`]
+
+  indexes {
+    (user_id, anime_id) [unique, note: 'One review per user per anime']
+  }
+}
+
+Table favorites {
+  user_id integer [primary key]
+  anime_id integer [primary key]
+  created_at timestamp [default: `now()`]
+
+  Note: 'Many-to-many relationship for user wishlists/favorites'
+}
+
+// Relationships
+Ref: anime_genres.anime_id > animes.id [delete: cascade]
+Ref: anime_genres.genre_id > genres.id [delete: cascade]
+
+Ref: reviews.user_id > users.id [delete: cascade]
+Ref: reviews.anime_id > animes.id [delete: cascade]
+
+Ref: favorites.user_id > users.id [delete: cascade]
+Ref: favorites.anime_id > animes.id [delete: cascade]
