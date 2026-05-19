@@ -16,11 +16,116 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentUser = AnimeAuth.getCurrentUser();
     const profileName = document.querySelector('.profile-info h1');
     const profileMeta = document.querySelector('.profile-info p');
+    const avatarContainer = document.getElementById('profile-avatar-container');
     
-    if (currentUser) {
-        profileName.textContent = currentUser.name;
-        profileMeta.innerHTML = `${currentUser.email} <br> <span style="font-size: 0.8rem; opacity: 0.7;">Membro desde ${new Date(currentUser.createdAt).getFullYear()}</span>`;
+    // UI Elements for Avatar Modal
+    const modal = document.getElementById('avatar-modal');
+    const openModalBtn = document.getElementById('open-avatar-modal');
+    const closeModalBtn = document.getElementById('close-avatar-modal');
+    const saveAvatarBtn = document.getElementById('save-avatar-btn');
+    const avatarGrid = document.getElementById('avatar-options-grid');
+    
+    let selectedAvatarUrl = currentUser ? currentUser.profileImage : null;
+    const basePath = '../';
+
+    /**
+     * Update Profile Header with User Data
+     */
+    function updateProfileHeader() {
+        if (currentUser) {
+            profileName.textContent = currentUser.name;
+            profileMeta.innerHTML = `${currentUser.email} <br> <span style="font-size: 0.8rem; opacity: 0.7;">Membro desde ${new Date(currentUser.createdAt).getFullYear()}</span>`;
+            
+            // Set Avatar
+            if (currentUser.profileImage) {
+                const fullImageUrl = currentUser.profileImage.startsWith('http') ? currentUser.profileImage : basePath + currentUser.profileImage;
+                avatarContainer.innerHTML = `
+                    <img src="${fullImageUrl}" alt="Profile Avatar">
+                    <button class="edit-avatar-btn" id="open-avatar-modal">Alterar Foto</button>
+                `;
+            } else {
+                avatarContainer.innerHTML = `
+                    <i class="fas fa-user"></i>
+                    <button class="edit-avatar-btn" id="open-avatar-modal">Alterar Foto</button>
+                `;
+            }
+
+            // Re-attach event listener to the new button
+            document.getElementById('open-avatar-modal').addEventListener('click', openAvatarModal);
+        }
     }
+
+    updateProfileHeader();
+
+    /**
+     * Modal Logic
+     */
+    function openAvatarModal() {
+        modal.classList.add('active');
+        renderAvatarOptions();
+    }
+
+    function closeAvatarModal() {
+        modal.classList.remove('active');
+    }
+
+    function renderAvatarOptions() {
+        avatarGrid.innerHTML = '';
+        profileAvatars.forEach(avatar => {
+            const isSelected = selectedAvatarUrl === avatar.url;
+            const fullUrl = avatar.url.startsWith('http') ? avatar.url : basePath + avatar.url;
+            const avatarHtml = `
+                <div class="avatar-option ${isSelected ? 'selected' : ''}" data-url="${avatar.url}">
+                    <img src="${fullUrl}" alt="${avatar.name}">
+                </div>
+            `;
+            avatarGrid.insertAdjacentHTML('beforeend', avatarHtml);
+        });
+
+        // Add event listeners to options
+        document.querySelectorAll('.avatar-option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.avatar-option').forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                selectedAvatarUrl = option.dataset.url;
+            });
+        });
+    }
+
+    saveAvatarBtn.addEventListener('click', () => {
+        if (currentUser && selectedAvatarUrl) {
+            // Update current user object
+            currentUser.profileImage = selectedAvatarUrl;
+            
+            // Update in localStorage
+            localStorage.setItem('animeCurrentUser', JSON.stringify(currentUser));
+            
+            // Update all users list to persist the change
+            const allUsers = AnimeAuth.getUsers();
+            const userIndex = allUsers.findIndex(u => u.id === currentUser.id);
+            if (userIndex !== -1) {
+                allUsers[userIndex].profileImage = selectedAvatarUrl;
+                localStorage.setItem('animeUsers', JSON.stringify(allUsers));
+            }
+
+            updateProfileHeader();
+            closeAvatarModal();
+            
+            // Notify user
+            alert('Foto de perfil atualizada com sucesso!');
+            
+            // Reload page to update navbar (or we could update navbar manually)
+            window.location.reload();
+        }
+    });
+
+    openModalBtn.addEventListener('click', openAvatarModal);
+    closeModalBtn.addEventListener('click', closeAvatarModal);
+    
+    // Close modal on outside click
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) closeAvatarModal();
+    });
 
     const favorites = AnimeUtils.getFavorites();
     const reviews = AnimeUtils.getReviews();

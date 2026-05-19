@@ -420,3 +420,14 @@ const animeData = [
         trailer: "https://www.youtube.com/embed/qSHeXvY_v2M"
     }
 ];
+
+const profileAvatars = [
+    { id: 1, name: "Naruto", url: "images/naruto.png" },
+    { id: 2, name: "Bocchi", url: "images/bocchi.jpg" },
+    { id: 3, name: "Frieren", url: "images/frieren.jpg" },
+    { id: 4, name: "Anya", url: "https://media.kitsu.app/characters/images/157121/original.jpg" },
+    { id: 5, name: "Luffy", url: "https://media.kitsu.app/characters/images/3667/original.jpg" },
+    { id: 6, name: "Tanjiro", url: "https://media.kitsu.app/characters/images/138311/original.jpg" },
+    { id: 7, name: "Goku", url: "https://media.kitsu.app/characters/images/643/original.jpg" },
+    { id: 8, name: "Mikasa", url: "https://media.kitsu.app/characters/images/67440/original.jpg" }
+];

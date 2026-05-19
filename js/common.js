@@ -113,7 +113,15 @@ function createNavbar() {
                     <li><a href="${basePath}index.html">Início</a></li>
                     <li><a href="${isSubPage ? 'favorites.html' : 'pages/favorites.html'}">Favoritos</a></li>
                     ${currentUser 
-                        ? `<li><a href="${isSubPage ? 'profile.html' : 'pages/profile.html'}">Meu Perfil</a></li>
+                        ? `<li>
+                             <a href="${isSubPage ? 'profile.html' : 'pages/profile.html'}" class="nav-user-profile">
+                                ${currentUser.profileImage 
+                                    ? `<img src="${currentUser.profileImage.startsWith('http') ? currentUser.profileImage : basePath + currentUser.profileImage}" alt="${currentUser.name}" class="nav-avatar">` 
+                                    : `<i class="fas fa-user-circle"></i>`
+                                }
+                                <span>Meu Perfil</span>
+                             </a>
+                           </li>
                            <li><a href="#" id="logout-btn" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: var(--accent-color); border-color: rgba(244, 63, 94, 0.2);">Sair</a></li>`
                         : `<li><a href="${isSubPage ? 'login.html' : 'pages/login.html'}" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Entrar</a></li>`
                     }

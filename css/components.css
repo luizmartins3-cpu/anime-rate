@@ -55,6 +55,40 @@
     color: var(--text-light);
 }
 
+.nav-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.35rem 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50px;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s;
+}
+
+.nav-user-profile:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+}
+
+.nav-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.nav-user-profile i {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+}
+
+.nav-user-profile span {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
 .nav-mobile-btn {
     display: none;
     flex-direction: column;
