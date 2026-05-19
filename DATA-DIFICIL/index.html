@@ -1,0 +1,148 @@
+html:
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>DATA DO CAOS: MATH EDITION</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="maquina-container neon-border">
+        <h1>DATA DE NASCIMENTO</h1>
+        
+        <div class="controle-clique">
+            <div class="display-main">
+          
+                <span id="res-dia">01</span>/<span id="res-mes">01</span>/<span id="res-ano">1500</span>
+  
+            </div>
+            <div class="botoes-ajuste">
+                <button onclick="incrementar('dia')">DIA +1</button>
+                <button onclick="incrementar('mes')">MÊS +1</button>
+                <button onclick="incrementar('ano')">ANO +1</button>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="secao-hacker">
+            <p>OU DESBLOQUEIE O TECLADO:</p>
+            <div id="area-pergunta">
+                <span id="pergunta-texto">Quanto é 5 x 5?</span>
+                <input type="number" id="resposta-math" placeholder="?">
+                <button onclick="verificarDesafio()">HACKEAR</button>
+            </div>
+            <input type="text" id="input-data-livre" placeholder="DD/MM/AAAA" disabled>
+        </div>
+
+        <div id="feedback-caos" class="feedback">Boa sorte, você vai precisar...</div>
+        <button id="btn-salvar-caos" class="btn-premio">SALVAR DADOS</button>
+    </div>
+
+    <script src="db.js"></script> 
+    <script src="controller.js"></script>
+</body>
+</html>
+
+
+
+//controller.js:
+
+// ESTADO INICIAL: 1500
+let data = { dia: 1, mes: 1, ano: 1500 };
+let dificuldade = 1;
+let desafioAtual = { pergunta: "", resposta: 0 };
+
+// 1. INCREMENTO (O longo caminho desde 1500)
+function incrementar(tipo) {
+    if (tipo === 'ano') {
+        data.ano++;
+    } else if (tipo === 'mes') {
+        data.mes = data.mes >= 12 ? 1 : data.mes + 1;
+    } else {
+        data.dia = data.dia >= 31 ? 1 : data.dia + 1;
+    }
+    atualizarDisplay();
+}
+
+function atualizarDisplay() {
+    document.getElementById('res-dia').innerText = data.dia.toString().padStart(2, '0');
+    document.getElementById('res-mes').innerText = data.mes.toString().padStart(2, '0');
+    document.getElementById('res-ano').innerText = data.ano;
+}
+
+// 2. DESAFIOS DE NÍVEL "CÁLCULO III"
+function gerarDesafioImpossivel() {
+    const tipos = ['integral', 'bhaskara_complexa', 'volume_esfera'];
+    const sorteio = tipos[Math.floor(Math.random() * tipos.length)];
+
+    if (sorteio === 'integral') {
+        // Simulação de integral de x^n
+        let n = dificuldade + 1;
+        desafioAtual.pergunta = `Calcule a integral definida de ${n}x^${n-1} no intervalo [0, 2]:`;
+        desafioAtual.resposta = Math.pow(2, n);
+    } 
+    else if (sorteio === 'bhaskara_complexa') {
+        // x² - (Soma)x + Produto = 0
+        let x1 = dificuldade * 2;
+        let x2 = 3;
+        let soma = x1 + x2;
+        let prod = x1 * x2;
+        desafioAtual.pergunta = `Na equação x² - ${soma}x + ${prod} = 0, qual o valor da maior raíz (x)?`;
+        desafioAtual.resposta = Math.max(x1, x2);
+    } 
+    else {
+        // Volume da Esfera (4/3 * PI * r³) - Aproximando PI para 3
+        let r = dificuldade;
+        desafioAtual.pergunta = `Considerando PI=3, qual o volume de uma esfera com raio r=${r}? (V = 4 * r³)`;
+        desafioAtual.resposta = 4 * Math.pow(r, 3);
+    }
+
+    document.getElementById('pergunta-texto').innerText = desafioAtual.pergunta;
+}
+
+function verificarDesafio() {
+    const respUser = parseFloat(document.getElementById('resposta-math').value);
+    
+    if (Math.abs(respUser - desafioAtual.resposta) < 0.1) {
+        feedback.innerText = "ACESSO LIBERADO. DIGITE MANUALMENTE.";
+        document.getElementById('input-data-livre').disabled = false;
+    } else {
+        dificuldade++;
+        feedback.innerText = `ERROU! A COMPLEXIDADE SUBIU PARA O NÍVEL ${dificuldade}!`;
+        gerarDesafioImpossivel();
+    }
+}
+
+// Inicia o sistema
+gerarDesafioImpossivel();
+atualizarDisplay();
+
+
+
+
+      css:
+      * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Press Start 2P', cursive; }
+body { background: #0d0d0d; display: flex; justify-content: center; align-items: center; height: 100vh; color: #fff; overflow: hidden; }
+
+.maquina-container { 
+    background: #1a1a1a; padding: 30px; border: 4px solid #39ff14; 
+    box-shadow: 0 0 20px #39ff14; text-align: center; width: 500px;
+}
+
+.display-main { font-size: 1.5rem; margin: 20px 0; color: #39ff14; background: #000; padding: 10px; }
+.botoes-ajuste button { padding: 10px; font-size: 0.5rem; cursor: pointer; margin: 5px; background: #333; color: #fff; border: 1px solid #39ff14; }
+
+hr { margin: 20px 0; border: 1px dashed #39ff14; }
+
+.secao-hacker { background: #222; padding: 15px; border-radius: 10px; }
+.secao-hacker p { font-size: 0.5rem; margin-bottom: 10px; color: #ff00de; }
+#input-data-livre { width: 100%; padding: 10px; margin-top: 10px; text-align: center; background: #000; color: #39ff14; border: 2px solid #555; }
+#input-data-livre:enabled { border-color: #39ff14; box-shadow: 0 0 10px #39ff14; }
+
+.feedback { margin-top: 15px; font-size: 0.5rem; color: #ffef00; }
+.btn-premio { 
+    margin-top: 20px; padding: 15px; background: #ff00de; color: #fff; cursor: pointer; 
+    border: none; box-shadow: 0 0 10px #ff00de; transition: 0.2s;
+}
