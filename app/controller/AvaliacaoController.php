@@ -1,7 +1,10 @@
 <?php
 
-require_once 'AvaliacaoService.php';
-require_once 'BusinessRuleException.php';
+namespace Controllers;
+
+use Services\AvaliacaoService;
+use Core\BusinessRuleException;
+use Exception;
 
 class AvaliacaoController {
     private $service;
@@ -12,12 +15,12 @@ class AvaliacaoController {
 
     public function index() {
         $avaliacoes = $this->service->listarRecentes();
-        require_once 'view_feedback.php';
+        require __DIR__ . '/../../view/view_feedback.php';
     }
 
     public function store() {
         try {
-            // Dados vindos do POST (sanitizados pelo middleware)
+            // Dados vindos do POST
             $dados = [
                 'anime_id'   => $_POST['anime_id'] ?? null,
                 'anime_name' => $_POST['anime_name'] ?? null,
@@ -34,10 +37,12 @@ class AvaliacaoController {
 
         } catch (BusinessRuleException $e) {
             $erro = $e->getMessage();
-            require_once 'view_feedback.php';
+            $avaliacoes = $this->service->listarRecentes(); // Recarrega para a view
+            require __DIR__ . '/../../view/view_feedback.php';
         } catch (Exception $e) {
             $erro = "Ops! Algo deu errado no servidor. Tente novamente.";
-            require_once 'view_feedback.php';
+            $avaliacoes = $this->service->listarRecentes();
+            require __DIR__ . '/../../view/view_feedback.php';
         }
     }
 }

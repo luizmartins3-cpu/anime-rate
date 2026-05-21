@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
     <script>
         // Inicialização rápida do tema para evitar flash de cor
         (function() {
@@ -25,14 +25,14 @@
 <body class="<?php echo isset($_COOKIE['theme']) && $_COOKIE['theme'] === 'light' ? 'light-theme' : ''; ?>">
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="nav-logo">
+            <a href="" class="nav-logo">
                 <i class="fas fa-play-circle" style="color: var(--primary-color);"></i>
                 Anime<span>Rate</span>
             </a>
             <div class="nav-links">
-                <a href="/" class="nav-link">Início</a>
-                <a href="/login" class="nav-link">Entrar</a>
-                <a href="/register" class="btn btn-primary" style="padding: 0.6rem 1.2rem;">Cadastrar</a>
+                <a href="" class="nav-link">Início</a>
+                <a href="login" class="nav-link">Entrar</a>
+                <a href="register" class="btn btn-primary" style="padding: 0.6rem 1.2rem;">Cadastrar</a>
                 <button id="theme-toggle-btn" class="theme-toggle" title="Alternar tema">
                     <i class="fas fa-sun"></i>
                 </button>

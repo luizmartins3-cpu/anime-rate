@@ -127,14 +127,14 @@ require __DIR__ . '/components/header.php';
             </form>
 
             <div class="auth-footer">
-                Ainda não tem conta? <a href="/register">Criar Conta Agora</a>
+                Ainda não tem conta? <a href="register">Criar Conta Agora</a>
             </div>
         </div>
     </main>
 </div>
 
 <!-- Scripts -->
-<script src="/js/auth.js"></script>
+<script src="js/auth.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('login-form');

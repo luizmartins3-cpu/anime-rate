@@ -34,7 +34,7 @@
             <div class="success-box">
                 Sua avaliação foi enviada com sucesso ao nosso banco de dados!
             </div>
-            <a href="../index.html" class="btn-back">Voltar ao Início</a>
+            <a href="/" class="btn-back">Voltar ao Início</a>
         <?php endif; ?>
 
         <h2>Avaliações Recentes (BD)</h2>

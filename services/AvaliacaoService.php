@@ -1,7 +1,10 @@
 <?php
 
-require_once 'IAvaliacaoRepository.php';
-require_once 'BusinessRuleException.php';
+namespace Services;
+
+use Interfaces\IAvaliacaoRepository;
+use Core\BusinessRuleException;
+use Models\Avaliacao;
 
 class AvaliacaoService {
     private $repository;

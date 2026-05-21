@@ -19,7 +19,7 @@ require __DIR__ . '/components/header.php';
 
 <div class="fade-in">
     <main class="container">
-        <a href="/" class="btn btn-secondary" style="margin-bottom: 2rem;">
+        <a href="" class="btn btn-secondary" style="margin-bottom: 2rem;">
             <i class="fas fa-arrow-left"></i> Voltar à Galeria
         </a>
 
