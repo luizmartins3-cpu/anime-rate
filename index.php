@@ -2,9 +2,21 @@
 
 // Autoload simples
 spl_autoload_register(function ($class) {
+    // Tenta o caminho original (Case Sensitive)
     $file = __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';
     if (file_exists($file)) {
         require $file;
+        return;
+    }
+
+    // Tenta com o nome da pasta em minúsculo (Comum em Linux quando o namespace é Upper e a pasta Lower)
+    $parts = explode('\\', $class);
+    if (count($parts) > 1) {
+        $parts[0] = strtolower($parts[0]);
+        $file = __DIR__ . '/' . implode('/', $parts) . '.php';
+        if (file_exists($file)) {
+            require $file;
+        }
     }
 });
 
