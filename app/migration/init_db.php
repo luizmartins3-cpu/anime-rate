@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../core/Database.php';
+require __DIR__ . '/../model/Database.php';
 
 use Core\Database;
 
@@ -16,7 +16,7 @@ echo "Tabelas criadas com sucesso!\n";
 $animes = [
     [
         'name' => 'Naruto Shippuden',
-        'image' => 'images/naruto.png',
+        'image' => 'app/view/images/naruto.png',
         'rating' => 8.7,
         'description' => 'Naruto Uzumaki quer se tornar o maior ninja da vila.',
         'full_description' => 'Naruto Shippuden é a continuação da série original Naruto e segue o jovem ninja Naruto Uzumaki em sua jornada para se tornar o Hokage.',
@@ -46,7 +46,7 @@ $animes = [
     ],
     [
         'name' => 'Bocchi the Rock!',
-        'image' => 'images/bocchi.jpg',
+        'image' => 'app/view/images/bocchi.jpg',
         'rating' => 8.6,
         'description' => 'Uma garota ansiosa entra em uma banda de rock.',
         'full_description' => 'Hitori Gotou é uma estudante do ensino médio que começa a aprender a tocar violão porque sonha em estar em uma banda, mas ela é tão tímida que não fez um único amigo.',
@@ -56,7 +56,7 @@ $animes = [
     ],
     [
         'name' => 'Frieren: Beyond Journey\'s End',
-        'image' => 'images/frieren.jpg',
+        'image' => 'app/view/images/frieren.jpg',
         'rating' => 9.1,
         'description' => 'Uma maga elfa reflete sobre a vida e a mortalidade.',
         'full_description' => 'A maga elfa Frieren e seus corajosos companheiros aventureiros derrotaram o Rei Demônio e trouxeram a paz à terra.',

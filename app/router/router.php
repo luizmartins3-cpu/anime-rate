@@ -49,11 +49,11 @@ switch ($path) {
         break;
 
     case '/login':
-        require __DIR__ . '/../../view/login.php';
+        require __DIR__ . '/../view/login.php';
         break;
 
     case '/register':
-        require __DIR__ . '/../../view/register.php';
+        require __DIR__ . '/../view/register.php';
         break;
 
     default:

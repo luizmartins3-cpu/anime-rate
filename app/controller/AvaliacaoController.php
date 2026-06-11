@@ -15,7 +15,7 @@ class AvaliacaoController {
 
     public function index() {
         $avaliacoes = $this->service->listarRecentes();
-        require __DIR__ . '/../../view/view_feedback.php';
+        require __DIR__ . '/../view/view_feedback.php';
     }
 
     public function store() {
@@ -38,11 +38,11 @@ class AvaliacaoController {
         } catch (BusinessRuleException $e) {
             $erro = $e->getMessage();
             $avaliacoes = $this->service->listarRecentes(); // Recarrega para a view
-            require __DIR__ . '/../../view/view_feedback.php';
+            require __DIR__ . '/../view/view_feedback.php';
         } catch (Exception $e) {
             $erro = "Ops! Algo deu errado no servidor. Tente novamente.";
             $avaliacoes = $this->service->listarRecentes();
-            require __DIR__ . '/../../view/view_feedback.php';
+            require __DIR__ . '/../view/view_feedback.php';
         }
     }
 }
